@@ -7,6 +7,7 @@ from tkinter import scrolledtext, ttk, messagebox
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 from textblob import TextBlob
+# Copyright (c) 2024 Isaac Pradeep Raj
 
 # Download NLTK data
 nltk.download('punkt')            #these functions return a boolean values
@@ -74,6 +75,8 @@ class HealthChatbotModel:
             "mental resilience": "Build mental resilience through positive thinking, stress management techniques, maintaining a support network, and seeking professional help when needed.",
             "first aid basics": "Basic first aid includes knowing how to treat cuts, burns, sprains, and performing CPR. Consider taking a certified first aid course.",
             "fever": "Fever is often a sign of the body fighting an infection. It's important to rest, stay hydrated, and monitor your temperature. If it persists or is accompanied by severe symptoms, seek medical attention."
+            # Copyright (c) 2024 Isaac Pradeep Raj
+
         }
 
         self.questions = list(self.data.keys())
@@ -90,6 +93,8 @@ class HealthChatbotModel:
         # Thresholds for determining response relevance
         high_threshold = 0.5
         low_threshold = 0.3
+        # Copyright (c) 2024 Isaac Pradeep Raj
+
 
         if best_match_score > high_threshold:
             return self.answers[best_match_idx]
@@ -111,6 +116,8 @@ class HealthChatbotModel:
         for token in filtered_tokens:
             for question, answer in self.data.items():
                 if token in question:
+                    # Copyright (c) 2024 Isaac Pradeep Raj
+
                     related_responses.append(answer)
         
         # Return the top 3 related responses or a default message if none are found
@@ -124,6 +131,7 @@ class HealthChatbotApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Health Chatbot")
+        # Copyright (c) 2024 Isaac Pradeep Raj
 
         self.chat_history = scrolledtext.ScrolledText(root, width=50, height=20)
         self.chat_history.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
@@ -166,6 +174,8 @@ class HealthChatbotApp:
         return self.model.get_response(user_input)
 
 if __name__ == "__main__":
+    # Copyright (c) 2024 Isaac Pradeep Raj
+
     root = tk.Tk()
     app = HealthChatbotApp(root)
     root.mainloop()
